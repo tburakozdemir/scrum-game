@@ -175,12 +175,18 @@ export default {
 }
 
 .user {
-  width: 40%;
-  height: 15px;
+  height: 10vh;
+  display: grid;
+  place-items: center;
+  width: 300px;
+  height: 150px;
   position: fixed;
-  top: 450px;
-  right: 11.3%;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
 }
+
 
 .average-card {
   position: absolute;

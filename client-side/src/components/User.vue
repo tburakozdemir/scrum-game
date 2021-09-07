@@ -44,6 +44,7 @@ export default {
 }
 
 .card-user-name h6 {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
