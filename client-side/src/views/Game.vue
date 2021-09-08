@@ -1,19 +1,15 @@
 <template>
   <div class="game">
-    <NavBar 
-      :userName="userName" 
-      :gameName="gameName" 
-    />
-    <Popup 
-      @getUsername="getUserName($event)" 
-    />
-    <Error 
-      v-if="error == true" 
-    />
+    <NavBar :userName="userName" :gameName="gameName" />
+    <Popup @getUsername="getUserName($event)" />
+    <Error v-if="error == true" />
     <div class="container-table">
       <div class="game-table">
         <b-button
-          v-on:click="getAverage"
+          v-on:click="
+            getAverage();
+            getUserNumber();
+          "
           class="table-but"
           pill
           variant="primary"
@@ -27,6 +23,7 @@
       :hasUserSelectedNum="hasUserSelectedNum"
       :isSelectedNumHidden="isSelectedNumHidden"
       :clikedItems="clikedItems"
+      :showNumber="showNumber"
     />
     <div class="average-card">
       <b-card
@@ -77,6 +74,7 @@ export default {
       userName: "",
       gameName: "",
       showAverage: "",
+      showNumber: "",
       selectedNum: [],
       clikedItems: [],
       error: false,
@@ -139,6 +137,12 @@ export default {
         console.log("Please select a number");
       }
     },
+    getUserNumber() {
+      let selectedNumber = this.clikedItems.find(
+        (user) => user.name === this.userName
+      );
+      this.showNumber = selectedNumber.number;
+    },
   },
 };
 </script>
@@ -184,9 +188,7 @@ export default {
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
 }
-
 
 .average-card {
   position: absolute;
