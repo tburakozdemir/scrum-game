@@ -1,14 +1,16 @@
 <template>
   <div class="user">
-    <div
-      class="card-user"
-      v-bind:style="hasUserSelectedNum && 'background-color: #3993ff;'"
-    >
-      <h6 v-if="isSelectedNumHidden == true">
-        {{ this.showNumber }}
-      </h6>
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <div
+        class="card-user"
+        v-bind:style="hasUserSelectedNum && 'background-color: #3993ff;'"
+      >
+        <p v-if="isSelectedNumHidden == true">
+          {{ showNumber }}
+        </p>
+      </div>
       <div class="card-user-name">
-        <h6>{{ this.userName }}</h6>
+        <p>{{ this.userName }}</p>
       </div>
     </div>
   </div>
