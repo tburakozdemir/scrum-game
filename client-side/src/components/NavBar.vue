@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Invite v-if="invitePlayer == true" />
     <b-navbar type="light" variant="light">
       <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
 
@@ -17,7 +18,9 @@
             </h5>
           </b-nav-text>
           <div style="display: flex">
-            <b-button variant="outline-primary">📮 Invite Players</b-button>
+            <b-button @click="onInvite" variant="outline-primary"
+              >📮 Invite Players</b-button
+            >
             <b-nav-item-dropdown left>
               <template #button-content>
                 <em>{{ userName }}</em>
@@ -34,11 +37,23 @@
 </template>
 
 <script>
-export default {
-  props: ["userName", "gameName"],
+import Invite from "../components/InvitePop.vue";
 
+export default {
+  components: { Invite },
+  props: ["userName", "gameName"],
+  data() {
+    return {
+      invitePlayer: false,
+    };
+  },
   created: function () {
     console.log(this.userName);
+  },
+  methods: {
+    onInvite() {
+      this.invitePlayer = true;
+    },
   },
 };
 </script>
