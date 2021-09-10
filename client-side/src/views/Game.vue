@@ -128,7 +128,7 @@ export default {
     },
     resetGame() {
       this.isSelectedNumHidden = false;
-      this.clikedItems[0].number = "";
+      this.showNumber = "";
       this.hasUserSelectedNum = false;
       this.error = false;
     },
